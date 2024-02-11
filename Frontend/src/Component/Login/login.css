@@ -1,0 +1,31 @@
+.centered-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh; 
+  }
+.image{
+    width: 25%;
+    text-align: center;
+    transition:transform 0.3s;
+  }
+  .image:hover{
+    transform: scale(1.2);
+  }
+  .centered-image {
+    width: 300px; 
+    height: auto;
+    margin-top: 150px;
+    clip-path: circle();
+    transition: 2s ease;
+
+}
+.image-name{
+    margin:0;
+    font-size: medium;
+    font: 100;
+}
+
+  
+  
