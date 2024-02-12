@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const Farmer = require("../models/userModel");
+const Wholesaler = require("../models/wholesalerModel")
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -7,10 +7,10 @@ const jwt = require("jsonwebtoken");
 
 router.post("/register", async (req, res)=>{
   try{
-      const {name, GovID, email, password, passwordVarify} = req.body;
+      const {name, email, password, passwordVarify} = req.body;
 
       //validation
-      if( !name || !GovID || !email || !password || !passwordVarify)
+      if( !name || !email || !password || !passwordVarify)
           return res
               .status(400)
               .json({errorMessage: "Plese enter all required fields"}); 
@@ -25,7 +25,7 @@ router.post("/register", async (req, res)=>{
           .status(400).json({errorMessage: "please enter the same password  twice",
       });
 
-      const existingUser = await Farmer.findOne({email});
+      const existingUser = await Wholesaler.findOne({email});
       if (existingUser)
           return res
           .status(400).json({errorMessage: "An account with this email alrady exists.",
@@ -36,8 +36,8 @@ router.post("/register", async (req, res)=>{
       const passwordHash = await bcrypt.hash(password, salt);
 
       //save new user account to the database
-      const newUser = new Farmer({
-          name, GovID, email, passwordHash
+      const newUser = new Wholesaler({
+          name, email, passwordHash
       });
 
       const savedUser = await newUser.save();
@@ -61,7 +61,7 @@ router.post("/login", async (req, res) => {
         .status(400)
         .json({ errorMessage: "Please enter all required fields." });
 
-    const existingUser = await Farmer.findOne({ email });
+    const existingUser = await Wholesaler.findOne({ email });
     if (!existingUser)
       return res.status(401).json({ errorMessage: "Wrong email or password." });
 

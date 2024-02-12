@@ -142,7 +142,7 @@ const FarmerRegistration = () => {
             save_data();
             setTimeout(
                 function() {
-                    document.location.href="/register"
+                    document.location.href="/farmerLogin"
                 },
                 4000
             );
@@ -165,7 +165,7 @@ const FarmerRegistration = () => {
                 passwordVarify
             };
 
-            await axios.post("http://localhost:5000/auth/", registerData);
+            await axios.post("http://localhost:5000/farmer/register/", registerData);
 
         } catch(err) {
             console.error(err);

@@ -76,7 +76,7 @@ const FarmerLogin = () => {
             email, password
         };
 
-        await axios.post("http://localhost:5000/auth/login", loginData); 
+        await axios.post("http://localhost:5000/farmer/login/", loginData); 
         await getLoggedIn();
        
         setTimeout(

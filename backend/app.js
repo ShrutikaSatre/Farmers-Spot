@@ -43,5 +43,6 @@ mongoose.connect(
 
 // set up routes
 
-app.use("/auth", require("./routers/userRouter"));
+app.use("/farmer", require("./routers/userRouter"));
+app.use("/wholeseller",require("./routers/wholesalerRouter"))
 app.use("/addProducts", require("./routers/farmer/addProducts"));

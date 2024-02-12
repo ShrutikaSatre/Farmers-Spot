@@ -1,13 +1,9 @@
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema({
+const wholesalerSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
-  },
-  GovID: { 
-    type: String, 
-    required: true 
   },
   email: { 
     type: String, 
@@ -19,6 +15,6 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-const Farmer = mongoose.model("farmer", userSchema);
+const Wholesaler = mongoose.model("wholesaler", wholesalerSchema);
 
-module.exports = Farmer;
+module.exports = Wholesaler;
